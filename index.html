@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Filter Image</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+    <section>
+        <h1>Filter Image</h1>
+        <ul>
+            <li class="active">All Menu</li>
+            <li>Food</li>
+            <li>Car</li>
+            <li>House</li>
+            <li>Travel</li>
+        </ul>
+
+        <div class="product">
+            <img src="https://images.pexels.com/photos/376464/pexels-photo-376464.jpeg?cs=srgb&dl=pexels-ash-376464.jpg&fm=jpg" data-filter="food">
+            <img src="https://images.everydayhealth.com/images/diet-nutrition/34da4c4e-82c3-47d7-953d-121945eada1e00-giveitup-unhealthyfood.jpg?sfvrsn=a31d8d32_0" data-filter="food">
+            <img src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/20190503-delish-pineapple-baked-salmon-horizontal-ehg-450-1557771120.jpg?crop=0.669xw:1.00xh;0.173xw,0&resize=640:*" data-filter="food">
+            <img src="https://cdn.shopify.com/s/files/1/2628/9270/files/mango-2400_cab7a249-532b-46db-b779-5e6fb243b63f.jpg?v=1630140424" data-filter="food">
+            <img src="https://cdni.autocarindia.com/utils/imageresizer.ashx?n=https://cms.haymarketindia.net/model/uploads/modelimages/Mahindra-Scorpio-N-300620221053.jpg&w=872&h=578&q=75&c=1" data-filter="car">
+            <img src="https://stimg.cardekho.com/images/carexteriorimages/630x420/MG/Hector/8259/1632911780671/front-left-side-47.jpg?impolicy=resize&imwidth=480" data-filter="car">
+            <img src="https://stimg.cardekho.com/images/carexteriorimages/930x620/Jaguar/F-TYPE/7810/1643799635985/front-left-side-47.jpg" data-filter="car">
+            <img src="https://cars.tatamotors.com/images/performance-mobile-new.jpg" data-filter="car">
+            <img src="https://images.pexels.com/photos/186077/pexels-photo-186077.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" data-filter="house">
+            <img src="https://images.pexels.com/photos/3935328/pexels-photo-3935328.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" data-filter="house">
+            <img src="https://images.pexels.com/photos/5071177/pexels-photo-5071177.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" data-filter="house">
+            <img src="https://images.pexels.com/photos/1396132/pexels-photo-1396132.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" data-filter="house">
+            <img src="https://images.pexels.com/photos/2664046/pexels-photo-2664046.jpeg?cs=srgb&dl=pexels-ankiyay-2664046.jpg&fm=jpg" data-filter="travel">
+            <img src="https://images.pexels.com/photos/3600567/pexels-photo-3600567.jpeg?cs=srgb&dl=pexels-fede-roveda-3600567.jpg&fm=jpg" data-filter="travel">
+            <img src="https://images.pexels.com/photos/887828/pexels-photo-887828.jpeg?cs=srgb&dl=pexels-tirachard-kumtanom-887828.jpg&fm=jpg" data-filter="travel">
+            <img src="https://images.pexels.com/photos/2108809/pexels-photo-2108809.jpeg?cs=srgb&dl=pexels-amine-m%27siouri-2108809.jpg&fm=jpg" data-filter="travel">
+            <img src="https://images.pexels.com/photos/597049/paris-france-eiffel-tower-597049.jpeg?cs=srgb&dl=pexels-skitterphoto-597049.jpg&fm=jpg" data-filter="travel">
+            <img src="https://images.pexels.com/photos/2426551/pexels-photo-2426551.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" data-filter="travel">
+        </div>
+    </section>
+
+    <script>
+        const liItem = document.querySelectorAll('ul li');
+        const imgItem = document.querySelectorAll('.product img');
+
+        liItem.forEach(li => {
+           li.onclick = function() {
+            //active
+            liItem.forEach(li => {
+                li.className = "";
+                
+            })
+            li.className = "active";
+
+            //Filter
+            const value = li.textContent;
+            imgItem.forEach(img => {
+                img.style.display = 'none';
+                if (img.getAttribute('data-filter') == value.toLowerCase() || value == "All Menu") {
+                    img.style.display = 'block';
+                    
+                }
+               
+            })
+           }
+        });
+        
+    </script>
+</body>
+</html>
